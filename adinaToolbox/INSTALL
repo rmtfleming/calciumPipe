@@ -1,0 +1,18 @@
+## Install instructions for the Adina toolbox ##
+
++ REQUIRED libraries
+- spams ([1]), in particular the MATLAB version of the dictionary learning. Once compiled for your
+  architecture, copy them in the SPAMS/.
+
++ Compilation
+Before running the code, you MUST run "startup" script present in the
+main directory. 
+
++ Datasets
+Only reads sequence of image files that are able to read Matlab. The data MUST be motion compensated.
+
+For any question or bug report, please feel free to contact me at:
+ferran <dot> diego <at> iwr <dot> uni-heideleberg <dot> de
+
+[1] http://spams-devel.gforge.inria.fr/
+

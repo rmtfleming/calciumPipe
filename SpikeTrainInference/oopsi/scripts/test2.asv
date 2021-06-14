@@ -1,0 +1,26 @@
+clear all, clc;
+
+% FileTif='/mnt/siham_hachi/MATLAB codes/fast-oopsi-master/data/3lane/full_stack_small.tif';
+FileTif='P:\MATLAB codes\fast-oopsi-master\data\3lane\full_stack_small.tif';
+InfoImage=imfinfo(FileTif);
+NumberImages=length(InfoImage);
+
+ % delimit interesting area
+image = imread(FileTif,'Index',1001);
+h=figure; imagesc(image); colormap('hot');
+pause(5);
+[x, y] = getpts(h);
+x = round(x);
+y = round(y);
+
+for i=1:NumberImages
+       image = imread(FileTif,'Index',i);
+       FinalImage(:,:,i)= image(y(1):y(2),x(1):x(2));
+end
+    
+img=FinalImage;
+% outputFileName = '/mnt/siham_hachi/MATLAB codes/fast-oopsi-master/data/3lane/stack_small_NONTH.tif';
+outputFileName ='P:\MATLAB codes\fast-oopsi-master\data\3lane\full_stack_NONTH.tif';
+for K=1:length(img(1, 1, :))
+   imwrite(img(:, :, K), outputFileName, 'WriteMode', 'append');
+end
